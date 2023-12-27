@@ -3,7 +3,7 @@ import initialize from './app/app.js';
 
 
 const app = express();
-const port = 3002;
+const port = process.env.PORT || 3002;
 
 initialize(app);
 
