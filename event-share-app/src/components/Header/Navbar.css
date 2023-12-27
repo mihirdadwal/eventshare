@@ -1,0 +1,6 @@
+#menu-appbar ul li button {
+    color: #000;
+}
+#menu-appbar ul li button:hover {
+    background-color: rgba(182,22,1,0.02);
+}

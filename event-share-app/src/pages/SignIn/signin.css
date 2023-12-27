@@ -1,0 +1,70 @@
+.login {
+    margin: 10% auto;
+    max-width: 30%;
+    text-align: center;
+}
+
+.login h2 {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 36px;
+    color: #212529;
+}
+.login .loginLabel {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    margin: 7% 10% 10%;
+}
+.login .loginLabel label {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    color: #212529;
+    text-align: left;
+}
+.login  .loginLabel input {
+    border: 1px solid #b7b7b7;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 13px 12px;
+    width: 250px;
+}
+
+.login .loginLabel label , .login .loginLabel input, .login .loginLabelButton button, .error{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.login .loginLabelButton button {
+    font-size: 1.125rem;
+    cursor: pointer;
+    padding: 10px;
+    width: 60%;
+    color: #fff;
+    background-color: #b61601;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: none;
+}
+
+/*media query for ipad and tablet*/
+@media only screen and (max-width: 1024px) {
+    .login {
+        max-width: 50%;
+        margin: 10% auto;
+    }
+    .login .loginLabelButton button {
+        width: 100%;
+    }
+}
+
+/*media query for phone and mobile devices*/
+@media only screen and (max-width: 767px) {
+    .login {
+        max-width: 100%;
+        margin: 10%;
+    }
+}

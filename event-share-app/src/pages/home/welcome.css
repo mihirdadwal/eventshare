@@ -1,0 +1,88 @@
+.image-carousel {
+    position: relative;
+    width: 100%;
+    height: 100vh; 
+    overflow: hidden;
+    /* opacity: 0.7; */
+}
+.image-carousel::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    z-index: 1;
+    top: 0;
+  }
+
+.image-carousel img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+  
+.image-carousel img.active {
+    opacity: 1;
+}
+
+.login_buttons {
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.login_buttons .logins:hover {
+    background: #fff;
+  }
+
+.neuLogo {
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    margin: 10px;
+}
+.eventShare {
+    position: absolute;
+    text-align: center;
+    z-index: 2;
+    top: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+}
+.drop-in {
+    animation: drop-in 1s ease 200ms backwards;
+}
+
+.drop-in-2 {
+    animation: drop-in 1200ms ease 500ms backwards;
+}
+
+@keyframes drop-in {
+    from {
+     opacity: 0;
+     transform: translateY(-100px);
+    }
+    to {
+     opacity: 1;
+     transform: translate(0px);
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .eventShare .eventShare_heading {
+        font-size: 54px;
+    }
+  }
+

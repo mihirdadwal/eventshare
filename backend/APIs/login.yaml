@@ -1,0 +1,69 @@
+openapi: '3.1.0'
+info: 
+  title: Login API
+  description: REST API to Login for Admins and Users.
+  version: 'v1.0'
+servers: 
+  - url: http://localhost:8080
+paths: 
+  /login:
+    get: 
+      operationId: admin-login
+      description: Login for Admins
+      parameters: 
+        - name: username
+          in: query
+          required: true
+          example: admin
+          schema:
+            type: string
+        - name: password
+          in: query
+          required: true
+          example: test
+          schema: 
+            type: string
+      responses: 
+        "200":
+          description: Succcessfully Logged In
+          content:
+            application/json: 
+              schema: 
+                type: object
+                $ref: "#/components/schemas/admin"
+        "401":
+          description: Unautheticated request
+          content:
+            application/json: 
+              schema: 
+                type: object
+                $ref: "#/components/schemas/error"
+components: 
+  schemas:
+    admin:
+      type: object
+      properties: 
+        username:
+          type: string
+          examples:
+            - admin
+        password:
+          type: string
+          examples:
+            - test
+        schedule:
+          $ref: "#/components/schemas/time"
+    time:
+      type: object
+      properties:
+        login-time:
+          type: string
+          examples:
+            - "2023-11-12121212"
+    error:
+      type: object
+      properties:
+        error:
+          type: string
+          examples:
+            - "Unautheticated request"

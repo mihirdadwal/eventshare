@@ -1,0 +1,50 @@
+openapi: '3.1.0'
+info:
+  title: Delete Event API
+  description: Delete Event API to remove events by admins.
+  version: 'v1.0'
+servers:
+  - url: http://localhost:8080
+paths:
+  /delete:
+    delete:
+      operationId: delete-event
+      description: Delete an existing event by ID
+      parameters:
+        - name: Event ID
+          in: query
+          required: true
+          example: ev1234
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successfully Deleted Event
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: "#/components/schemas/delete"
+        "401":
+          description: Unauthenticated request
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: "#/components/schemas/error"
+components:
+  schemas:
+    delete:
+      type: object
+      properties:
+        Event ID:
+          type: string
+          examples:
+            - ev1234
+    error:
+      type: object
+      properties:
+        error:
+          type: string
+          examples:
+            - "Unauthenticated request"

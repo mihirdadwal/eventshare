@@ -1,0 +1,170 @@
+openapi: '3.1.0'
+info: 
+  title: Create Event API
+  description: Create Event API to add new events by admins.
+  version: 'v1.0'
+servers: 
+  - url: http://localhost:8080
+paths: 
+  /create:
+    post: 
+      operationId: create-event
+      description: Adding new events
+      parameters:
+        - name: Event_ID
+          in: query
+          required: true
+          example: ev1234
+          schema:
+            type: string 
+        - name: Event_Name
+          in: query
+          required: true
+          example: Fall 2024 Orientation
+          schema:
+            type: string
+        - name: Target_Audience
+          in: query
+          required: true
+          example: Spring 2024 Graduate Students
+          schema: 
+            type: string
+        - name: Date
+          in: query
+          required: true
+          example: 12-23-2023
+          schema: 
+            type: string
+        - name: Event_Start_Time
+          in: query
+          required: true
+          example: 11AM
+          schema: 
+            type: string
+        - name: Event_End_Time
+          in: query
+          required: true
+          example: 2PM
+          schema: 
+            type: string
+        - name: Location
+          in: query
+          required: true
+          example: Ell Hall, 346 Huntington Ave, Boston, MA 02115
+          schema: 
+            type: string
+        - name: Contact Number
+          in: query
+          required: false
+          example: 1236541234
+          schema: 
+            type: number
+        - name: Contact Email Address
+          in: query
+          required: false
+          example: xyz@northeastern.edu
+          schema: 
+            type: string
+        - name: About the Event
+          in: query
+          required: true
+          example: Northeastern Orientation is designed to introduce you to N.U.in policies and procedures, increase your familiarity with N.U.in locations, and meet your classmates and N.U.in staff. Information will include culture acclimation, safety and security while studying abroad, N.U.in policies, and academic advising. An online curriculum will also be provided.
+          schema: 
+            type: string
+        - name: Entry Fee
+          in: query
+          required: false
+          example: $25
+          schema: 
+            type: string
+        - name: Registration Link
+          in: query
+          required: false
+          example: xyz.com/register
+          schema: 
+            type: string
+      responses: 
+        "200":
+          description: Successfully New Event Added
+          content:
+            application/json: 
+              schema: 
+                type: object
+                $ref: "#/components/schemas/create"
+        "401":
+          description: Unautheticated request
+          content:
+            application/json: 
+              schema: 
+                type: object
+                $ref: "#/components/schemas/error"
+components: 
+  schemas:
+    create:
+      type: object
+      properties: 
+        Event ID:
+          type: string
+          examples:
+            - ev1234
+        Event name:
+          type: string
+          examples:
+            - Fall 2024 Orientation
+        Target audience:
+          type: string
+          examples:
+            - Spring 2024 Graduate Students
+        Date:
+          type: string
+          examples:
+            - 12-23-2023
+        Event timings:
+          $ref: "#/components/schemas/time"
+        Location:
+          type: string
+          examples:
+            - Ell Hall, 346 Huntington Ave, Boston, MA 02115
+        Contact:
+          $ref: "#/components/schemas/contact"
+        About:
+          type: string
+          examples:
+            - Northeastern Orientation is designed to introduce you to N.U.in policies and procedures, increase your familiarity with N.U.in locations, and meet your classmates and N.U.in staff. Information will include culture acclimation, safety and security while studying abroad, N.U.in policies, and academic advising. An online curriculum will also be provided.
+        Entry fees:
+          type: string
+          examples:
+            - $25
+        Registration Link:
+          type: string
+          examples:
+            - xyz.com/register
+    time:
+      type: object
+      properties:
+        start-time:
+          type: string
+          examples:
+            - "2023-11-12121212"
+        end-time:
+          type: string
+          examples:
+            - "2023-11-12121212"
+    contact:
+      type: object
+      properties:
+        number:
+          type: number
+          examples:
+            - "1236541234"
+        email:
+          type: string
+          examples:
+            - "xyz@northeastern.edu"
+    error:
+      type: object
+      properties:
+        error:
+          type: string
+          examples:
+            - "Unautheticated request"

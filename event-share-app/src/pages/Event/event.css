@@ -1,0 +1,236 @@
+.banner {
+    background-image: url('../../images/students-Husky-Dog-2048x1363.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.banner::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 708px;
+    background-color: rgba(0,0,0,0.4);
+    z-index: 1;
+    top: 0;
+}
+
+.banner{
+    width: 100%;
+    height: 708px;
+}
+
+.pageBreak {
+    margin: 10% auto;
+}
+
+.searchEvent p, .tickets.ratings{
+    margin: 5% auto;
+}
+
+.searchResult {
+    padding-top: 3%;
+}
+.pageBreak.searchEvent {
+    margin-bottom: 5%;
+}
+
+@keyframes fadeInUp {
+    0% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0%);
+      opacity: 1;
+    }
+  }
+  
+  .fadeInUp-animation {
+    animation: 1.5s fadeInUp;
+    position: absolute;
+    z-index: 2;
+    top: 30%;
+    text-align: center;
+    left: 0;
+    right: 0;
+}
+
+.addEvent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    align-items: center;
+    border: 1px solid rgba(151,151,151,.21)
+}
+.addEvent .leftPanelEvent , .addEvent .rightPanelEvent {
+    padding: 0;
+}
+.addEvent .leftPanelEvent img{
+    width: 100%;
+    height: auto;
+}
+
+.addEvent .rightPanelEvent .event-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}
+
+.pageBreak.viewEvents .viewalPara, .viewEvents h5 {
+    margin: 5% auto;
+}
+.addEvent .rightPanelEvent .event-wrapper button{
+    font-size: 1.125rem;
+    cursor: pointer;
+    padding: 10px;
+    margin: 20px;
+    color: #fff;
+    background-color: #b61601;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: none;
+}
+
+.searchResults {
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+/*Add Event Styling*/
+
+.add-event .dialogName {
+    font-size: 2rem;
+    text-align: center;
+    color: #000;
+}
+.addEventButton button, button.buyTicket, button.buyTicket:hover, .addEventButton button:hover {
+    cursor: pointer;
+    color: #fff;
+    background-color: #b61601;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: none;
+}
+.viewButton button, .viewButton a, .viewButton a:hover {
+    color: #fff;
+    cursor: pointer;
+}
+.viewButton {
+    justify-content: center;
+    border: 1px solid rgba(151,151,151,.21);
+    background-color: #b61601;
+}
+.cardImage {
+    border-bottom: 1px solid rgba(151,151,151,.21);
+}
+.cards:hover {
+    border: 3px solid rgba(151,151,151,.21);
+    box-shadow: 0 2px 5px 0 rgba(151,151,151,.21);
+    cursor: pointer;
+}
+.cards {
+    border: 1px solid rgba(151,151,151,.21);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    cursor: pointer;
+    border-radius: 10px;
+}
+.tickets {
+        /* margin: auto 20%; */
+        text-align: center;
+        padding: 5% 10%;
+        background: rgba(0, 0, 0, 0.06);
+        border-radius: 20px;
+        border: 1px solid rgba(151,151,151,.21);
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+.buyTicket.pay {
+    width: 100%;
+    margin: 10% auto;
+    padding: 10px;
+    font-size: 20px;
+}
+.cardPay {
+    margin: 10% auto;
+}
+
+.error {
+    float: left;
+}
+
+/*View Event PAge Style*/
+.viewContainer {
+    margin: 5% auto;
+}
+.eventDetails {
+    padding: 0 20px;
+}
+.eventDetails h3 {
+    text-align: center;
+    margin-top: 3%;
+}
+.eventDetails iframe {
+    margin-top: 2%;
+}
+.eventFlex , .eventButton{
+    display: flex;
+    gap: 15px;
+}
+
+.eventButton{
+    margin: 2% auto;
+    padding-bottom: 5%;
+}
+.location {
+    padding-top: 8%;
+}
+.eventDetails img {
+    width: 100%;
+    height: auto;
+}
+
+
+/*media query for ipad and tablet*/
+@media only screen and (max-width: 1024px) {
+    .fadeInUp-animation {
+        animation: 1.5s fadeInUp;
+        position: absolute;
+        z-index: 2;
+        top: 15%;
+        text-align: center;
+        left: 0;
+        right: 0;
+        margin: 0 10px;
+    }
+    .addEvent {
+        flex-direction: column;
+    }
+    .addEvent .rightPanelEvent .event-wrapper{
+        margin: 30px 15px;
+    }
+}
+
+/*media query for phone and mobile devices*/
+@media only screen and (max-width: 767px) {
+    .viewEvents {
+        margin: 20% auto;
+    }
+
+    .fadeInUp-animation h1 {
+        margin: 7% auto;
+    }
+    .fadeInUp-animation h4 {
+        font-size: 20px;
+        margin: 5% auto;
+    }
+    .searchResult {
+        padding-top: 5%;
+    }
+    .eventFlex, .eventButton {
+        flex-direction: column;
+    }
+}
